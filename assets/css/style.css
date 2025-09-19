@@ -1,0 +1,146 @@
+/* ===== Variáveis Globais e Configurações Iniciais ===== */
+:root {
+    --accent-color: #8a2be2; /* Cor de destaque (Roxo) */
+    --accent-glow: rgba(138, 43, 226, 0.6); /* Brilho da cor de destaque */
+    --background-dark: #121212; /* Fundo principal escuro */
+    --background-light: #1a1a1a; /* Fundo secundário um pouco mais claro */
+    --text-primary: #f0f0f0; /* Cor do texto principal (branco suave) */
+    --text-secondary: #bbb; /* Cor do texto secundário (cinza claro) */
+    --input-background: rgba(255, 255, 255, 0.05); /* Fundo dos campos de input */
+    --border-color: #444; /* Cor da borda padrão */
+    --gradient-text: linear-gradient(90deg, #38bdf8, #6d28d9); /* Gradiente para o texto de resultado */
+
+    /* Adicionando variáveis para transições e sombras para consistência */
+    --transition-speed: 0.3s;
+    --border-radius-main: 20px;
+    --border-radius-small: 12px;
+}
+
+/* ===== Reset Básico e Estilo do Corpo ===== */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif; /* Fonte elegante e moderna */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--background-dark), var(--background-light));
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased; /* Melhora a renderização da fonte */
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Estilo Principal da Calculadora ===== */
+#calculator {
+    background: var(--background-dark);
+    padding: 40px;
+    border-radius: var(--border-radius-main);
+    box-shadow: 0 0 30px var(--accent-glow);
+    width: 100%; /* Ocupa 100% da largura disponível */
+    max-width: 380px; /* Largura máxima para telas maiores */
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Aumenta o espaçamento entre os elementos */
+    box-sizing: border-box; /* Garante que padding não afete a largura total */
+    margin: 20px; /* Adiciona margem para telas pequenas */
+}
+
+/* ===== Título da Calculadora ===== */
+#calculator h2 {
+    text-align: center;
+    font-size: 2rem; /* Usando 'rem' para melhor acessibilidade */
+    color: var(--text-primary);
+    text-shadow: 0 0 10px var(--accent-color);
+    margin: 0 0 10px 0; /* Ajusta a margem do título */
+}
+
+/* ===== Campos de Input (Label e Input) ===== */
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Espaçamento entre label e input */
+    position: relative; /* Necessário para animações futuras */
+}
+
+.input-field label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    padding-left: 5px; /* Pequeno recuo para alinhar com o texto do input */
+}
+
+.input-field input {
+    background: var(--input-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    padding: 12px 15px; /* Aumenta o padding para mais área de respiro */
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.input-field input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 12px var(--accent-glow);
+    outline: none; /* Remove o contorno padrão do navegador */
+}
+
+/* ===== Botão de Calcular ===== */
+#calculate {
+    background: var(--accent-color);
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    padding: 15px; /* Botão mais "clicável" */
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    letter-spacing: 1px; /* Aumenta o espaçamento entre as letras */
+    transition: all var(--transition-speed) ease; /* Transição para todos os efeitos */
+}
+
+#calculate:hover, #calculate:focus {
+    box-shadow: 0 0 15px var(--accent-glow), 0 0 30px var(--accent-glow);
+    transform: translateY(-3px); /* Efeito de "levantar" mais pronunciado */
+    outline: none;
+}
+
+#calculate:active {
+    transform: translateY(0); /* Botão volta à posição original ao ser clicado */
+    box-shadow: 0 0 10px var(--accent-glow); /* Sombra menor no clique */
+}
+
+/* ===== Resultado Total ===== */
+#total {
+    text-align: center;
+    font-size: 2.8rem; /* Tamanho de fonte responsivo */
+    font-weight: 700;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-top: 10px; /* Espaçamento acima do resultado */
+    min-height: 60px; /* Altura mínima para evitar que o layout "pule" */
+}
+
+/* ===== Media Query para Responsividade em Telas Pequenas ===== */
+@media (max-width: 420px) {
+    #calculator {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    #calculator h2 {
+        font-size: 1.8rem;
+    }
+
+    #total {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+
