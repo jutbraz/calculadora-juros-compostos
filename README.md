@@ -1,4 +1,4 @@
-<h1 align="center"> Calculadora de Juros Compostos </h1>
+<h1 align="center"> 🔢 Calculadora de Juros Compostos </h1>
 
 Uma calculadora interativa feita com HTML, CSS e JavaScript para calcular o montante final de um investimento baseado em capital inicial, taxa de juros e período.
 
